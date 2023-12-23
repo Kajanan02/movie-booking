@@ -24,6 +24,7 @@ img {
     max-width: 100%;
     height: auto;
 }
+
 html,
 body {
     font-family: 'roboto', sans-serif;
@@ -33,6 +34,7 @@ body {
     height: 100%;
     color: #333;
 }
+
 body .main {
     background: #060f19;
 }
@@ -80,7 +82,7 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-     background-color:#2f3946;
+    background-color: #2f3946;
 
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -522,8 +524,8 @@ button:hover,
     border-bottom: 1px solid #182028;
 }
 
-.nav>li>a:focus,
-.nav>li>a:hover,
+.nav > li > a:focus,
+.nav > li > a:hover,
 .cat-menu ul li span:focus {
     text-decoration: none;
     background-color: transparent;
@@ -615,7 +617,7 @@ button:hover,
 }
 
 .social .attr-nav > ul > li > a {
-    padding:28px 14px 15px;
+    padding: 28px 14px 15px;
 }
 
 .header-search button {
@@ -653,8 +655,8 @@ button:hover,
     position: absolute;
 }
 
-.pagination>li>a,
-.pagination>li>span {
+.pagination > li > a,
+.pagination > li > span {
     color: #ffffff;
     background-color: #182028;
     margin: 0 5px;
@@ -662,19 +664,19 @@ button:hover,
     border: none;
 }
 
-.pagination>.active>a,
-.pagination>.active>a:focus,
-.pagination>.active>a:hover,
-.pagination>.active>span,
-.pagination>.active>span:focus,
-.pagination>.active>span:hover {
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
     color: #fff;
     background-color: #13be13;
     border-color: #13be13;
 }
 
-.pagination>li:first-child>a,
-.pagination>li:first-child>span {
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -1066,7 +1068,8 @@ a.button-detals {
     color: #13be13;
 }
 
-.plylist-single-content > ul {}
+.plylist-single-content > ul {
+}
 
 .plylist-single-content > ul > li {
     display: inline-block;
@@ -1534,10 +1537,11 @@ li.movie-time {
     background-position: top;
     background-size: cover;
     padding: 118px 0;
+    background: url("../src/assets/ft-bg.webp");
     position: relative;
     z-index: 0;
     padding-bottom: 42px;
-    padding-top: 300px;
+    padding-top: 70px;
 }
 
 .social-link ul li {
@@ -1776,15 +1780,15 @@ button.newsletter-btn:hover {
     display: none;
 }
 
-.nav-tabs>li>a:hover {
+.nav-tabs > li > a:hover {
     border-color: transparent;
     background: transparent;
     border: 1px solid transparent;
 }
 
-.nav-tabs>li.active>a,
-.nav-tabs>li.active>a:focus,
-.nav-tabs>li.active>a:hover {
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -2518,7 +2522,7 @@ ul.go-home {
     padding-top: 9px;
 }
 
-.breadcrumb>li+li:before {
+.breadcrumb > li + li:before {
     padding: 5px;
     color: #fff;
     content: "\f105";
@@ -2528,11 +2532,11 @@ ul.go-home {
     font-size: 15px;
 }
 
-.breadcrumb>li a:hover {
+.breadcrumb > li a:hover {
     color: #13be13;
 }
 
-.breadcrumb>li a {
+.breadcrumb > li a {
     color: #fff;
     font-weight: bold;
     font-size: 15px;
@@ -2562,7 +2566,7 @@ ul.go-home li a:hover {
     display: inline-block;
 }
 
-.breadcrumb>li {
+.breadcrumb > li {
     display: inline-block;
     font-weight: bold;
     font-size: 20px;
@@ -2701,7 +2705,7 @@ a.btn-no-bg:hover {
     margin: 0 3px;
 }
 
-.product-filter-list .bootstrap-select>.dropdown-toggle {
+.product-filter-list .bootstrap-select > .dropdown-toggle {
     width: auto;
     padding-right: 25px;
     z-index: 1;
@@ -2723,13 +2727,13 @@ a.btn-no-bg:hover {
     border-color: #182028;
 }
 
-.product-filter-list .bootstrap-select>.dropdown-toggle.bs-placeholder {
+.product-filter-list .bootstrap-select > .dropdown-toggle.bs-placeholder {
     color: #fff;
 }
 
-.product-filter-list .open>.dropdown-toggle.btn-default.focus,
-.product-filter-list .open>.dropdown-toggle.btn-default:focus,
-.product-filter-list .open>.dropdown-toggle.btn-default:hover,
+.product-filter-list .open > .dropdown-toggle.btn-default.focus,
+.product-filter-list .open > .dropdown-toggle.btn-default:focus,
+.product-filter-list .open > .dropdown-toggle.btn-default:hover,
 .product-filter-list .btn-default:active:focus,
 .product-filter-list .btn-default.active.focus {
     color: #fff;
@@ -2901,7 +2905,7 @@ div#slider-range {
 }
 
 .widget-color-area a.term-color,
-.widget .btn-group.bootstrap-select .dropdown-menu>li>a {
+.widget .btn-group.bootstrap-select .dropdown-menu > li > a {
     color: #333;
 }
 
@@ -3169,6 +3173,7 @@ span.count {
     border-radius: 24px;
     width: 100%;
 }
+
 .dec-review-img {
     position: relative;
 }
@@ -3679,7 +3684,8 @@ pre {
     margin: 8px 5px;
 }
 
-.tag-category a:hover {}
+.tag-category a:hover {
+}
 
 .tag-1 a:hover {
     background-color: #13be13;
@@ -3746,8 +3752,8 @@ h3.sortcode-title {
     box-shadow: none;
 }
 
-.faq-items .panel-title>a:hover,
-.faq-items .panel-title>a:active {
+.faq-items .panel-title > a:hover,
+.faq-items .panel-title > a:active {
     color: #13be13;
 }
 
@@ -3760,8 +3766,8 @@ h3.sortcode-title {
     color: #13af20;
 }
 
-.faq-items .panel-title>a,
-.faq-items .panel-title>a:active {
+.faq-items .panel-title > a,
+.faq-items .panel-title > a:active {
     display: block;
     padding: 15px;
     font-size: 16px;
@@ -3772,7 +3778,7 @@ h3.sortcode-title {
     text-decoration: none;
 }
 
-.faq-items .panel-default>.panel-heading {
+.faq-items .panel-default > .panel-heading {
     color: #fff;
     background-color: transparent;
     border-color: transparent;
@@ -3791,7 +3797,7 @@ h3.sortcode-title {
     color: #fff;
 }
 
-.faq-items .panel-group .panel-heading+.panel-collapse>.panel-body {
+.faq-items .panel-group .panel-heading + .panel-collapse > .panel-body {
     border-top: none;
 }
 
@@ -3874,9 +3880,11 @@ h3.sortcode-title {
         top: 0;
         right: 53px;
     }
+
     .Top-rating-items .owl-item > div {
         transition: margin 400ms ease-out;
     }
+
     .Top-rating-items .owl-item.center > div {
         margin: 0;
     }
@@ -4506,58 +4514,70 @@ ul.gallery-list li {
 
 /*------ UPDATE CSS FILE 5-08-2018 --------*/
 /** button **/
-.home-6 .header-search button,.home-6 .green-bg,.home-6 .owl-next:hover,.home-6 .owl-prev:hover,.home-6 span.movie-count-time,.home-6 .blck-bg:hover,.home-6 .cat-menu ul li span:after,
-.home-6 .share-hover,.home-6 .ft-twitter-icon span:after {
+.home-6 .header-search button, .home-6 .green-bg, .home-6 .owl-next:hover, .home-6 .owl-prev:hover, .home-6 span.movie-count-time, .home-6 .blck-bg:hover, .home-6 .cat-menu ul li span:after,
+.home-6 .share-hover, .home-6 .ft-twitter-icon span:after {
     background: #00C3B7;
     color: #fff
 }
+
 .home-6 .header-search button:hover {
     background: #fff;
     color: #333
 }
-.home-6 .slider-section a.carousel-control span:hover,.home-6 .green,.home-6 .owl-prev,.home-6 .movie-ratting > a > span,.home-6 .plylist-wich span:hover,.home-6 .plylist-single-content > a:hover,
-.home-6 .view-movi a:hover,.home-6 .owl-next,.home-6 .movie-item-content-center a:hover,.home-6 .syotimer-cell_type_day .syotimer-cell__value,.home-6 .syotimer-cell_type_day .syotimer-cell__unit,
-.home-6 .cat-menu ul li span:hover,.home-6 .top-accounts ul li a:hover,.home-6 nav.navbar.bootsnav ul.nav > li > a:hover,.home-6 nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a:hover,
-.home-6 nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a:hover,.home-6 .ft-content > ul li a:hover,.home-6 .ft-twitter-icon,.home-6 .twitter-meta ul li a:hover,
-.home-6 .footer-menu ul li a:hover,.home-6 .copyright-text a,.home-6 .social .attr-nav ul li a:hover,.home-6 .twitter-dec > a:hover{
-   color: #00C3B7
+
+.home-6 .slider-section a.carousel-control span:hover, .home-6 .green, .home-6 .owl-prev, .home-6 .movie-ratting > a > span, .home-6 .plylist-wich span:hover, .home-6 .plylist-single-content > a:hover,
+.home-6 .view-movi a:hover, .home-6 .owl-next, .home-6 .movie-item-content-center a:hover, .home-6 .syotimer-cell_type_day .syotimer-cell__value, .home-6 .syotimer-cell_type_day .syotimer-cell__unit,
+.home-6 .cat-menu ul li span:hover, .home-6 .top-accounts ul li a:hover, .home-6 nav.navbar.bootsnav ul.nav > li > a:hover, .home-6 nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a:hover,
+.home-6 nav.navbar.bootsnav ul.dropdown-menu.megamenu-content .content ul.menu-col li a:hover, .home-6 .ft-content > ul li a:hover, .home-6 .ft-twitter-icon, .home-6 .twitter-meta ul li a:hover,
+.home-6 .footer-menu ul li a:hover, .home-6 .copyright-text a, .home-6 .social .attr-nav ul li a:hover, .home-6 .twitter-dec > a:hover {
+    color: #00C3B7
 }
+
 .home-6 .hadding-area {
     border-left: 2px solid #00C3B7;
 }
+
 button.newsletter-btn:hover {
     background: #00C3B7;
     border-color: #00C3B7;
 }
+
 .main.home-6 {
     background-color: #000;
 }
+
 .home-6 .gradient:hover:after {
     content: "";
     background: -webkit-linear-gradient(to top, rgba(6, 15, 25, .6) 0%, rgba(0, 195, 183, .5) 100%);
     background: linear-gradient(to top, rgba(6, 15, 25, .6) 0%, rgba(0, 195, 183, .5) 100%);
     position: absolute;
 }
+
 .home-6 .bs-slider {
     max-height: 431px;
 }
+
 .home-6 .social .attr-nav {
     margin-right: 0;
 }
+
 .home-6 .time-bg {
     position: relative;
     padding: 18% 0;
 }
+
 .home-6 .timer-contents {
     left: 0;
     padding: 6% 0;
 }
+
 .home-6 .footer-bg {
     padding: 0;
     padding-top: 23%;
     padding-bottom: 2%;
     background-image: none
 }
+
 .header-stikcy6 {
     background: #060e19 !important;
     position: fixed;
@@ -4573,14 +4593,18 @@ button.newsletter-btn:hover {
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
+
 .home-6 .timer-section:after {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .home-6 .buy-ticket-bg {
 }
-.home-6 .buy-ticket-select select,.home-6 .buy-ticket-select select:focus {
+
+.home-6 .buy-ticket-select select, .home-6 .buy-ticket-select select:focus {
     border: 2px solid #ffffff;
 }
+
 .home-6 .footer-bg:after {
     background-color: rgba(0, 0, 0, 0.9);
 }

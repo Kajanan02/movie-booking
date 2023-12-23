@@ -1,67 +1,68 @@
-import React from 'react';
+import React, {useState} from 'react';
 import movie from "../assets/card-img.jpg"
+import {NavLink, useNavigate} from "react-router-dom";
 
 function MovieCard(props) {
+    // const [isOpen, setOpen] = useState(false);
+    // const navigate = useNavigate()
+
     return (
-        <div class="owl-item cloned" style={{width:"360px",marginRight:0}}>
-            <li class="item">
-                <div class="movie-item-contents gradient">
+        <div className="owl-item cloned" style={{width: "360px", marginRight: 0}}>
+            <li className="item">
+                <div className="movie-item-contents gradient">
                     <img src={movie} alt=""/>
-                        <div class="movie-item-content">
-                            <div class="movie-item-content-top">
-                                <div class="float-start">
-                                                                <span
-                                                                    class="movie-count-time hover-left">02.50.20</span>
-                                </div>
-                                <div class="float-end">
-                                    <div class="movie-ratting">
-                                        <a href="https://tfhtml.themepul.com/moviestar/"><span
-                                            class="fa fa-star"></span>2/20</a>
-                                    </div>
-                                </div>
+                    <div className="movie-item-content">
+                        <div className="movie-item-content-top">
+                            <div className="float-start"><span className="movie-count-time hover-left">02.50.20</span>
                             </div>
-                            <div class="movie-item-content-center">
-                                <a href="https://tfhtml.themepul.com/moviestar/"
-                                   class="flat-icons"
-                                   data-video-url="https://www.youtube.com/watch?v=CsVJoCKc9rA"
-                                   style={{cursor:"pointer"}}><span
-                                    class="flaticon-play-button"></span></a>
-                            </div>
-                            <div class="movie-item-content-buttom">
-                                <div class="movie-item-title">
-                                    <a href="https://tfhtml.themepul.com/moviestar/">Hurry
-                                        Animate Blue Strack New Movie (2018)</a>
-                                </div>
-                                <div class="item-cat">
-                                    <ul>
-                                        <li><span>Category :</span><a
-                                            href="https://tfhtml.themepul.com/moviestar/">English
-                                            Animation Movies</a></li>
-                                    </ul>
-                                    <div class="item-cat-hover">
-                                        <ul>
-                                            <li><span>Release :</span><a
-                                                href="https://tfhtml.themepul.com/moviestar/">October
-                                                26, 2017</a></li>
-                                            <li><span>Genre :</span><a
-                                                href="https://tfhtml.themepul.com/moviestar/">Action,
-                                                Drama</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="movie-item-beta">
-                                    <div class="movie-details">
-                                        <a href="https://tfhtml.themepul.com/moviestar/"
-                                           class="btn btn-button button-detals blck-bg">details</a>
-                                    </div>
-                                    <div class="view-movie">
-                                        <a class="blck-bg"
-                                           href="https://tfhtml.themepul.com/moviestar/">15k
-                                            view</a>
-                                    </div>
+                            <div className="float-end">
+                                <div className="movie-ratting">
+                                    <NavLink to={"/details"}><span
+                                        className="fi fi-rr-star"></span>2/20</NavLink>
                                 </div>
                             </div>
                         </div>
+                        <div className="movie-item-content-center">
+                            <NavLink to={"/details"}
+                                     className="flat-icons"
+                                     data-video-url="https://www.youtube.com/watch?v=CsVJoCKc9rA"
+                                     style={{cursor: "pointer"}}><i className="fi fi-rr-play-circle"></i></NavLink>
+                        </div>
+                        <div className="movie-item-content-buttom">
+                            <div className="movie-item-title">
+                                <NavLink to={"/details"}>Hurry
+                                    Animate Blue Strack New Movie (2018)</NavLink>
+                            </div>
+                            <div className="item-cat">
+                                <ul>
+                                    <li><span>Category :</span><NavLink
+                                        to={"/details"}>English
+                                        Animation Movies</NavLink></li>
+                                </ul>
+                                <div className="item-cat-hover">
+                                    <ul>
+                                        <li><span>Release :</span><NavLink
+                                            to={"/details"}>October
+                                            26, 2017</NavLink></li>
+                                        <li><span>Genre :</span><NavLink
+                                            to={"/details"}>Action,
+                                            Drama</NavLink></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="movie-item-beta">
+                                <div className="movie-details">
+                                    <NavLink to={"/details"}
+                                             className="btn btn-button button-detals blck-bg">details</NavLink>
+                                </div>
+                                <div className="view-movie">
+                                    <NavLink className="blck-bg"
+                                             to={"/details"}>15k
+                                        view</NavLink>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </li>
         </div>
