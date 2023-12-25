@@ -10,7 +10,7 @@ function Movies(props) {
             <Heading heading={"Latest Movies"}
                      subTxt={"Lorem Ipsum is simply dummy text of the printing and typesetting industrioy. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown."}/>
             <div className={"container "}>
-                <div className={"row"}>
+                <div className={"row pb-75"}>
                     <div className={"col-md-4"}>
                         <MovieCard/>
                     </div>

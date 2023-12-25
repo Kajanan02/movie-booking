@@ -76,3 +76,13 @@ body {
     background-color: #00ff00 !important;
     border-color: #050e19;
 }
+.sheet{
+    border: 1px solid #ddd;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+}

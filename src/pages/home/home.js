@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "./header";
 import MovieCard from "../../components/movie-card";
 import Heading from "../../components/heading";
+import MovieAdd from "../movies/movie-add";
 
 function Home(props) {
     return (
@@ -36,6 +37,7 @@ function Home(props) {
                         <MovieCard/>
                     </div>
                 </div>
+                <MovieAdd/>
             </div>
         </>
     );
