@@ -2581,7 +2581,7 @@ ul.go-home li a:hover {
 
 /**** shop page right side ***/
 
-a.btn-no-bg {
+.btn-no-bg {
     border: 2px solid #fff;
     padding: 10px 32px;
     display: inline-block;
@@ -2592,9 +2592,10 @@ a.btn-no-bg {
     font-weight: bold;
     color: #fff;
     font-size: 15px;
+    cursor: pointer;
 }
 
-a.btn-no-bg:hover {
+.btn-no-bg:hover {
     background: #13be13;
     border-color: #13be13;
 }
