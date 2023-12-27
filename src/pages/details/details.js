@@ -1,45 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Banner from "../../assets/details.jpg"
 import SubBanner from "../../assets/details-sub.jpg"
+import MovieAdd from "../movies/movie-add";
 
 function Details(props) {
+    const [show, setShow] = useState(false);
+
+    function onClose() {
+        setShow(false)
+    }
+
     return (
-        <div class="container">
-            <div class="details-page">
-                <div class="details-big-img mt-0">
+        <div className="container">
+            <div className="details-page">
+                <div className="details-big-img mt-0">
                     <img src={Banner} width={"100%"}/>
-                    <div class="play-icon">
-                        <a href="https://tfhtml.themepul.com/moviestar/details.html" class="flat-icons"
+                    <div className="play-icon">
+                        <a href="https://tfhtml.themepul.com/moviestar/details.html" className="flat-icons"
                            data-video-url="https://www.youtube.com/watch?v=CsVJoCKc9rA"
-                           style={{cursor: "pointer"}}><span class="fi-rr-play-circle"></span></a>
+                           style={{cursor: "pointer"}}><span className="fi-rr-play-circle"></span></a>
                     </div>
                 </div>
-                <div class="details-contents">
-                    <div class="row justify-content-end">
-                        <div class="col-md-offset-1 col-lg-offset-1 col-lg-11 col-md-11 col-sm-12 col-xs-12">
-                            <div class="details-content">
-                                <div class="details-reviews">
-                                    <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
-                                            <div class="dec-review-img">
+                <div className="details-contents">
+                    <div className="row justify-content-end">
+                        <div className="col-md-offset-1 col-lg-offset-1 col-lg-11 col-md-11 col-sm-12 col-xs-12">
+                            <div className="details-content">
+                                <div className="details-reviews">
+                                    <div className="row">
+                                        <div className="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                            <div className="dec-review-img">
                                                 <img src={SubBanner} alt=""/>
                                             </div>
                                         </div>
-                                        <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
-                                            <div class="dec-review-dec">
-                                                <div class="details-title">
+                                        <div className="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                                            <div className="dec-review-dec">
+                                                <div className="details-title">
                                                     <h2>Hurry Animate Blue Strack New Movie (2018)</h2>
                                                 </div>
-                                                <div class="ratting">
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    <span class="fa fa-star"></span>
+                                                <div className="ratting">
+                                                    <span className="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
+                                                    <span className="fa fa-star"></span>
                                                     <a href="https://tfhtml.themepul.com/moviestar/details.html">6/5
                                                         ratitng</a>
                                                 </div>
-                                                <div class="dec-review-meta">
+                                                <div className="dec-review-meta">
                                                     <ul>
                                                         <li><span>Category <label>:</label></span><a
                                                             href="https://tfhtml.themepul.com/moviestar/details.html">English
@@ -56,7 +63,7 @@ function Details(props) {
                                                         <li><span>languase <label>:</label></span><a
                                                             href="https://tfhtml.themepul.com/moviestar/details.html">english</a>
                                                         </li>
-                                                        <div className="btn-button btn-no-bg mt-5">Book Now</div>
+                                                        <div className="btn-button btn-no-bg mt-5" onClick={()=> setShow(true)}>Book Now</div>
                                                     </ul>
                                                 </div>
 
@@ -65,8 +72,8 @@ function Details(props) {
                                     </div>
                                 </div>
 
-                                <div class="details-dectiontion">
-                                    <h2 class="title">Movie story</h2>
+                                <div className="details-dectiontion">
+                                    <h2 className="title">Movie story</h2>
                                     <p>Proin fringilla porttitor eros, auctor facilisis neque fringilla eu. Nulla vitae
                                         ultrices justo. Quisque in risus vitae enim fermentum condimentum. Donec
                                         eleifend consequat nulla sed faucibus. Etiam sit amet ex ut eros dignissim
@@ -93,6 +100,7 @@ function Details(props) {
                     </div>
                 </div>
             </div>
+            <MovieAdd show={show} close={onClose}/>
         </div>
     );
 }

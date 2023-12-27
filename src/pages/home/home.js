@@ -37,7 +37,6 @@ function Home(props) {
                         <MovieCard/>
                     </div>
                 </div>
-                <MovieAdd/>
             </div>
         </>
     );
