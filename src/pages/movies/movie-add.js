@@ -16,6 +16,7 @@ function MovieAdd(props) {
         setValue,
         initForm,
         values,
+        deleteErrors,
         errors,
     } = formHandler(ticketBook, validateTicketBook);
 
@@ -40,9 +41,14 @@ function MovieAdd(props) {
 
     }
 
-    console.log(seat)
+ function closeModal() {
+     props.close()
+     setStep(1)
+     deleteErrors(errors)
+ }
+
     return (
-        <Modal show={props.show} onHide={props.close} size="lg" backdrop="static" centered>
+        <Modal show={props.show} onHide={closeModal} size="lg" backdrop="static" centered>
             <Modal.Header closeButton>
                 <Modal.Title>How Many Seats?</Modal.Title>
             </Modal.Header>
@@ -72,7 +78,7 @@ function MovieAdd(props) {
                         <div className={"text-center"}>All eyes this way please!</div>
                     </div>
                 </div>}
-                <div className={"row"}>
+                {step === 2 &&<div className={"row"}>
                     <div className={"col-md-6"}>
                         <div className={"mb-3"}>
                             <h6><label htmlFor="exampleInputEmail1"
@@ -121,22 +127,22 @@ function MovieAdd(props) {
                             {errors.email && <p className={"text-danger"}>{errors.email}</p>}
                         </div>
                     </div>
-                </div>
+                </div>}
 
 
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={props.close}>
+                <Button variant="secondary" onClick={closeModal}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={() => {
+                <Button variant="success" onClick={() => {
                     if (step === 1) {
                         setStep(2)
                     } else {
                         handleSubmit()
                     }
                 }}>
-                    Save
+                    {step === 1 ? "Next": "Save"}
                 </Button>
             </Modal.Footer>
         </Modal>
