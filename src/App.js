@@ -12,20 +12,18 @@ import Footer from "./components/footer";
 import Movies from "./pages/movies/movies";
 import Contact from "./pages/contact/contact";
 import Faq from "./pages/faq/faq";
+import AdminHome from "./pages/admin/home/admin-home";
+import RoutesTheatre from "./utilities/routes/routes-thetre";
+import RoutesAdmin from "./utilities/routes/routes-admin";
 
 function App() {
     return (
         <>
-            <MainNavbar/>
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/details" element={<Details/>}/>
-                <Route path="/movies" element={<Movies/>}/>
-                <Route path="/contact" element={<Contact/>}/>
-                <Route path="/faq" element={<Faq/>}/>
-
+                <Route path="/*" element={<RoutesTheatre/>}/>
+                <Route path="/admin/*" element={<RoutesAdmin/>}/>
             </Routes>
-            <Footer/>
+
 
         </>
     );
