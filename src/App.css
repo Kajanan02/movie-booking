@@ -92,6 +92,39 @@
 .selected-seat{
     background: #00ff0054;
 }
+.admin-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+}
+
+.table-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 270px);
+    border: .75px solid rgba(63, 68, 81, .12156862745098039);
+    background-color: rgb(255, 255, 255);
+    color: rgb(33, 43, 54);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-image: none;
+    position: relative;
+    box-shadow: rgba(145, 158, 171, 0.16) 0px 4px 8px 0px;
+    border-radius: 7px;
+}
+@media (max-width: 768px) {
+    .table-container {
+        overflow: scroll;
+    }
+
+    .table-container table {
+        min-width: 700px !important;
+    }
+
+    .table-btn-container {
+        margin-top: 24px;
+    }
+}
+
 .border-right {
     border-right: 1px solid #D1D1D1 !important;
 }

@@ -8,7 +8,10 @@ import Faq from "../../pages/faq/faq";
 import MainNavbar from "../../pages/home/main-Navbar";
 import Footer from "../../components/footer";
 import AdminHome from "../../pages/admin/home/admin-home";
-import AdminMovies from "../../pages/admin/movies/admin-movies";
+import AdminMovies from "../../pages/admin/admin-movies";
+import AdminFaq from "../../pages/admin/admin-faq";
+import AdminContact from "../../pages/admin/admin-contact";
+import AdminBooking from "../../pages/admin/admin-booking";
 
 function RoutesAdmin(props) {
     return (
@@ -16,9 +19,9 @@ function RoutesAdmin(props) {
             <Routes>
                 <Route exact path="/" element={<AdminHome/>}/>
                 <Route path="/movies" element={<AdminMovies/>}/>
-                <Route path="/movies" element={<Movies/>}/>
-                <Route path="/contact" element={<Contact/>}/>
-                <Route path="/faq" element={<Faq/>}/>
+                <Route path="/contact" element={<AdminContact/>}/>
+                <Route path="/faq" element={<AdminFaq/>}/>
+                <Route path="/booking" element={<AdminBooking/>}/>
 
             </Routes>
         </>
