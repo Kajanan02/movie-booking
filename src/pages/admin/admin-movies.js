@@ -9,7 +9,6 @@ function AdminMovies(props) {
                 <div className={"p-lg-5 m-lg-5 p-4"}>
                     <div className={"d-flex justify-content-end mb-5"}>
                         <button type="button" className={"btn-button btn-no-bg mt-5 text-dark"}
-                                data-bs-toggle="modal" data-bs-target="#exampleModal"
                         >
                             <FeatherIcon className={"action-icons text-dark"} icon={"plus"}/>
                             Add

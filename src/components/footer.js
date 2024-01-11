@@ -108,7 +108,7 @@ function Footer(props) {
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 sm-width">
                                 <div className="copyright-text">
-                                    <p>CopyRight© 2018 <a href="https://tfhtml.themepul.com/moviestar/">Team 05 </a>
+                                    <p>CopyRight © 2024 <a href="https://tfhtml.themepul.com/moviestar/">Team 05 </a>
                                         All Rights Reserved.</p>
                                 </div>
                             </div>
