@@ -15,10 +15,17 @@ import Faq from "./pages/faq/faq";
 import AdminHome from "./pages/admin/home/admin-home";
 import RoutesTheatre from "./utilities/routes/routes-thetre";
 import RoutesAdmin from "./utilities/routes/routes-admin";
+import Loader from "./components/loader";
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from "react-toastify";
+import ConfirmationDialog from "./components/confirmation-dialog";
 
 function App() {
     return (
         <>
+            <Loader/>
+            <ToastContainer />
+            <ConfirmationDialog/>
             <Routes>
                 <Route path="/*" element={<RoutesTheatre/>}/>
                 <Route path="/admin/*" element={<RoutesAdmin/>}/>

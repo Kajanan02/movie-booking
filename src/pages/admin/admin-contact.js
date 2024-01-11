@@ -1,8 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Layout from "../../components/layout/layout";
 import FeatherIcon from "feather-icons-react";
+import axios from "axios";
+import {useDispatch} from "react-redux";
+import {toggleLoader} from "../../redux/actions";
 
 function AdminContact(props) {
+
+    const [contactList, setContactList] = useState([]);
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        dispatch(toggleLoader(true))
+        axios.get(`${process.env.REACT_APP_HOST}contact`)
+            .then((res) => {
+                console.log(res)
+                setContactList(res.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            }).finally(() => {
+            dispatch(toggleLoader(false))
+        })
+    }, [])
+
+    console.log(contactList)
+
     return (
         <Layout>
             <div className={"container"}>
@@ -12,23 +36,25 @@ function AdminContact(props) {
                             <thead className={"top-0 position-sticky h-45"}>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Date</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Contact No</th>
                                 <th scope="col">Subject</th>
-                                <th scope="col">Marks</th>
-                                <th scope="col">Rank</th>
+                                <th scope="col">Message</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {/*{marksList.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt)).map((data, index) => (*/}
-                            <tr key={"index+marksReports"}>
-                                <th scope="row">{"index + 1"}</th>
-                                <td>{"data.date?.slice(0,10)"}</td>
-                                <td>{"data.subject"}</td>
-                                <td>{"data.marks"}</td>
-                                <td>{"data.rank"}</td>
+                            {contactList.map((data, index) => (
+                            <tr key={index+"marksReports"}>
+                                <th scope="row">{index + 1}</th>
+                                <td>{data.name}</td>
+                                <td>{data.email}</td>
+                                <td>{data.contactNo}</td>
+                                <td>{data.subject}</td>
+                                <td>{data.message}</td>
 
                             </tr>
-                            {/*))}*/}
+                            ))}
                             </tbody>
                         </table>
                         {/*{marksList.length === 0 &&*/}
