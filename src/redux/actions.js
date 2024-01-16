@@ -38,3 +38,10 @@ export const setMqttDetail = (mqttDetail) => {
     };
 }
 
+export const setSelectedMovieDetail = (selectedMovieDetail) => {
+    return {
+        type: "SELECTED_MOVIE_DETAIL",
+        payload: selectedMovieDetail
+    };
+}
+

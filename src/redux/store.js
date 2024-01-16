@@ -12,6 +12,9 @@ export const store = createStore(reducer, {
     userDetail: {
         data: {},
     },
+    selectedMovieDetails: {
+        data: {},
+    },
     mqttDetail: {
         data: {},
     }

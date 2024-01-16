@@ -6,7 +6,7 @@ import formHandler from "../../utilities/FormHandler";
 import {validateTicketBook} from "../../utilities/validations";
 import DatePicker from "react-horizontal-datepicker";
 import axios from "axios";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {toggleLoader} from "../../redux/actions";
 import {toast} from "react-toastify";
 
@@ -51,6 +51,10 @@ function MovieAdd(props) {
 
     }
 
+    const selectedMovie = useSelector(state => {
+        return state?.selectedMovieDetails?.data
+    });
+
  function closeModal() {
         setSeatValidate(false)
      setSeat([])
@@ -76,9 +80,9 @@ const data = {}
     data.contactNo = values.contactNumber
     data.address = values.address
     data.seats = seat
-    data.movieName = "ka"
+    data.movieName = selectedMovie?.name
     data.movieDate = values.movieDate
-    data.movieTime = "KJHB"
+    data.movieTime = "10.00 AM"
 
         console.log(data)
         axios.post(`${process.env.REACT_APP_HOST}booking`, data)

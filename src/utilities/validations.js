@@ -69,3 +69,38 @@ export function validateConfirmationDialog(values) {
     return errors;
 }
 
+export function validateMovieData(values) {
+    let errors = {};
+
+    if (!values.name) {
+        errors.name = "Name is Required"
+    }
+    if (!values.category) {
+        errors.category = "Category is Required"
+    }
+    if (!values.actor) {
+        errors.actor = "Actor is Required"
+    }
+    if (!values.genre) {
+        errors.genre = "Genre is Required"
+    }
+    if (!values.release) {
+        errors.release = "Release Date is Required"
+    }
+    if (!values.language) {
+        errors.language = "Language is Required"
+    }
+    if (!values.description) {
+        errors.description = "Description is Required"
+    }
+    if (!values.rate) {
+        errors.rate = "Rate is Required"
+    }
+    if (!values.duration) {
+        errors.duration = "Duration is Required"
+    }
+
+    return errors;
+}
+
+
