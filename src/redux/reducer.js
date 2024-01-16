@@ -40,12 +40,21 @@ const mqttDetailReducer = (state = {}, action) => {
             return state;
     }
 }
+const selectedMovieDetailReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'SELECTED_MOVIE_DETAIL':
+            return {...state, data: action.payload};
+        default:
+            return state;
+    }
+}
 
 const reducers = combineReducers({
     setting: settingReducer,
     loader: loaderReducer,
     userDetail: userDetailReducer,
-    mqttDetail: mqttDetailReducer
+    mqttDetail: mqttDetailReducer,
+    selectedMovieDetails: selectedMovieDetailReducer
 });
 
 export default reducers;

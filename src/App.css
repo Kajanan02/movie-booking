@@ -44,6 +44,9 @@
     margin-top: 7px;
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+    color: #00ff00;
+}
 .text-green {
     color: #00ff00;
 }
@@ -582,6 +585,13 @@
 .text-red {
     color: red !important;
 
+}
+.file-uploader-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 155px;
 }
 
 

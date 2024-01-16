@@ -32,6 +32,7 @@ function Contact(props) {
             .then((res) => {
                 console.log(res)
                 toast.success("Successfully sent your message")
+                initForm({})
             }).catch((err) => {
             toast.error("Something went wrong")
             console.log(err)
@@ -51,6 +52,7 @@ function Contact(props) {
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label fw-semibold">Name</label>
                             <input onChange={handleChange} type="text" className="form-control" id="exampleFormControlInput1" name={"name"}
+                                   value={values.name || ""}
                                    placeholder="Enter your name"/>
                             {errors.name && <p className={"text-danger"}>{errors.name}</p>}
                         </div>
@@ -59,6 +61,7 @@ function Contact(props) {
                         <div className="mb-3">
                             <label htmlFor="exampleFormControlInput1" className="form-label fw-semibold">Subject</label>
                             <input onChange={handleChange} type="text" className="form-control" id="exampleFormControlInput1" name={"subject"}
+                                   value={values.subject || ""}
                                    placeholder="Enter your subject"/>
                             {errors.subject && <p className={"text-danger"}>{errors.subject}</p>}
                         </div>
@@ -68,6 +71,7 @@ function Contact(props) {
                             <label htmlFor="exampleFormControlInput1" className="form-label fw-semibold">Contact
                                 No</label>
                             <input onChange={handleChange} type="text" className="form-control" id="exampleFormControlInput1" name={"contactNo"}
+                                   value={values.contactNo || ""}
                                    placeholder="Enter your Contact No"/>
                             {errors.contactNo && <p className={"text-danger"}>{errors.contactNo}</p>}
                         </div>
@@ -77,6 +81,7 @@ function Contact(props) {
                             <label htmlFor="exampleFormControlInput1" className="form-label fw-semibold">Email
                                 address</label>
                             <input onChange={handleChange} type="text" className="form-control" id="exampleFormControlInput1" name={"email"}
+                                   value={values.email || ""}
                                    placeholder="Enter your Email"/>
                             {errors.email && <p className={"text-danger"}>{errors.email}</p>}
                         </div>
@@ -87,6 +92,7 @@ function Contact(props) {
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label fw-semibold">Message</label>
                     <textarea onChange={handleChange} className="form-control" id="exampleFormControlTextarea1" rows="3" name={"message"}
+                              value={values.message || ""}
                               placeholder={"Enter your message"}></textarea>
                     {errors.message && <p className={"text-danger"}>{errors.message}</p>}
                 </div>

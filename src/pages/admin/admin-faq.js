@@ -106,8 +106,8 @@ function AdminFaq(props) {
     function handleDelete(id) {
         dispatch(toggleConfirmationDialog({
             isVisible: true,
-            confirmationHeading: ('ARE YOU SURE YOU WANT TO DELETE THIS STUDENT DATA'),
-            confirmationDescription: ('THE DELETE ACTION WILL REMOVE THE THIS STUDENT DATA')
+            confirmationHeading: ('ARE YOU SURE YOU WANT TO DELETE THIS FAQ DATA'),
+            confirmationDescription: ('THE DELETE ACTION WILL REMOVE THE THIS FAQ DATA')
         }));
         setDeletedId(id)
         console.log("ads")
