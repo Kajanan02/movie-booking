@@ -1,20 +1,39 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Banner from "../../assets/details.jpg"
 import SubBanner from "../../assets/details-sub.jpg"
 import MovieAdd from "../movies/movie-add";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
+import axios from "axios";
+import {toggleLoader} from "../../redux/actions";
 
 function Details(props) {
     const [show, setShow] = useState(false);
+    const {movieId} = useParams()
+    const dispatch = useDispatch();
+    const [selectedMovie, setSelectedMovie] = useState(null);
+
+
+    useEffect(() => {
+        dispatch(toggleLoader(true))
+        axios.get(`${process.env.REACT_APP_HOST}movie`)
+            .then((res) => {
+                if(movieId){
+                    setSelectedMovie(res.data.find((item)=> item.id == movieId))
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            }).finally(() => {
+            dispatch(toggleLoader(false))
+        })
+    }, []);
+
 
     function onClose() {
         setShow(false)
     }
-    const selectedMovie = useSelector(state => {
-        return state?.selectedMovieDetails?.data
-    });
 
-    console.log(selectedMovie)
 
     return (
         <div className="container">

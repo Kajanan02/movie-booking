@@ -11,12 +11,12 @@ import {toggleLoader} from "../../redux/actions";
 import {toast} from "react-toastify";
 
 
-
 function MovieAdd(props) {
     const [seat, setSeat] = useState([]);
     const [step, setStep] = useState(1);
     const [seatValidate, setSeatValidate] = useState(null);
     const [submit, setSubmit] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(new Date());
     const dispatch = useDispatch();
 
 
@@ -55,34 +55,34 @@ function MovieAdd(props) {
         return state?.selectedMovieDetails?.data
     });
 
- function closeModal() {
+    function closeModal() {
         setSeatValidate(false)
-     setSeat([])
-     props.close()
-     setStep(1)
-     deleteErrors(errors)
- }
+        setSeat([])
+        props.close()
+        setStep(1)
+        deleteErrors(errors)
+    }
 
-    const selectedDay = (val) =>{
-        console.log(val)
-        setValue({movieDate:val.toISOString()})
+    const selectedDay = (val) => {
+      setSelectedDate(val)
+        setValue({movieDate: val.toISOString()})
     };
 
     useEffect(() => {
-        if(!submit){
+        if (!submit) {
             return
         }
         dispatch(toggleLoader(true))
-console.log(values)
-const data = {}
-    data.name = values.name
-    data.email = values.email
-    data.contactNo = values.contactNumber
-    data.address = values.address
-    data.seats = seat
-    data.movieName = selectedMovie?.name
-    data.movieDate = values.movieDate
-    data.movieTime = "10.00 AM"
+        console.log(values)
+        const data = {}
+        data.name = values.name
+        data.email = values.email
+        data.contactNo = values.contactNumber
+        data.address = values.address
+        data.seats = seat
+        data.movieName = selectedMovie?.name
+        data.movieDate = values.movieDate
+        data.movieTime = "10.00 AM"
 
         console.log(data)
         axios.post(`${process.env.REACT_APP_HOST}booking`, data)
@@ -104,6 +104,8 @@ const data = {}
 
     }, [submit]);
 
+
+
     return (
         <Modal show={props.show} onHide={closeModal} size="lg" backdrop="static" centered>
             <Modal.Header closeButton>
@@ -112,6 +114,16 @@ const data = {}
             <Modal.Body>
 
                 {/*{[].map((item)=><div className={"sheet"}>{item}</div>)}*/}
+                {step === 1 && <div className={"row"}>
+                    <div className={"col-md-12 mb-5"}>
+                        <DatePicker getSelectedDay={selectedDay}
+                                    endDate={100}
+                                    selectDate={selectedDate}
+                                    labelFormat={"MMMM"}
+                                    color={"#229933"}
+                        /></div>
+                </div>
+                }
                 {step === 1 && <div>
 
                     <div className={"d-grid justify-content-center"}>
@@ -121,7 +133,7 @@ const data = {}
                             {data.map((item, index) => <div
                                 className={"sheet " + (seat.includes(item) ? "selected-seat" : "")}
                                 key={index + "sheer"} onClick={() => {
-                                    seatValidate && setSeatValidate(false)
+                                seatValidate && setSeatValidate(false)
                                 if (seat.includes(item)) {
                                     setSeat(seat.filter((seat) => seat !== item))
                                 } else {
@@ -135,16 +147,11 @@ const data = {}
                         <img src={screenImg}/>
                         <div className={"text-center"}>All eyes this way please!</div>
                     </div>
-                    {seatValidate &&<div className={"text-danger fw-semibold text-center mt-4"}>Please select seats</div>}
+                    {seatValidate &&
+                        <div className={"text-danger fw-semibold text-center mt-4"}>Please select seats</div>}
                 </div>}
-                {step === 2 &&<div className={"row"}>
-                    <div className={"col-md-12 mb-5"}>
-                    <DatePicker getSelectedDay={selectedDay}
-                                endDate={100}
-                                selectDate={new Date("2020-04-30")}
-                                labelFormat={"MMMM"}
-                                color={"#229933"}
-                    /></div>
+                {step === 2 && <div className={"row"}>
+
                     <div className={"col-md-6"}>
                         <div className={"mb-3"}>
                             <h6><label htmlFor="exampleInputEmail1"
@@ -203,7 +210,7 @@ const data = {}
                 </Button>
                 <Button variant="success" onClick={() => {
                     if (step === 1) {
-                        if(seat.length === 0){
+                        if (seat.length === 0) {
                             setSeatValidate(true)
                             return
                         }
@@ -213,7 +220,7 @@ const data = {}
                         handleSubmit()
                     }
                 }}>
-                    {step === 1 ? "Next": "Save"}
+                    {step === 1 ? "Next" : "Save"}
                 </Button>
             </Modal.Footer>
         </Modal>
