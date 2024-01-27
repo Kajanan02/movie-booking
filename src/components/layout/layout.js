@@ -42,57 +42,79 @@ function Layout({ children }) {
                             <img src={SideClose} alt="SideClose" className={!!open ? "rotate-180" : ""} />
                         </div>
                     </div>
-                    <div className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white pt-4 mt-5">
+                    <div
+                        className="d-flex flex-column align-items-center align-items-sm-start px-2 pt-2 text-white pt-4 mt-5">
 
                         <div className={"w-100 px-sm-2 home-mobile"}>
-                            <NavLink end className={({ isActive }) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "} to={"/admin"}>
+                            <NavLink end
+                                     className={({isActive}) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "}
+                                     to={"/admin"}>
                                 <div className={'d-flex'}>
-                                    <FeatherIcon icon="home" className={!open ? 'me-2' : "ms-1"} />
+                                    <FeatherIcon icon="home" className={!open ? 'me-2' : "ms-1"}/>
                                     {!open && <div className={'trans-1'}>Home</div>}
                                 </div>
                             </NavLink>
                         </div>
                         <div className={"w-100 px-sm-2"}>
-                            <NavLink  className={({ isActive }) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "} to={"/admin/movies"}>
+                            <NavLink
+                                className={({isActive}) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "}
+                                to={"/admin/movies"}>
                                 <div className={'d-flex'}>
-                                    <FeatherIcon icon="airplay" className={!open ? 'me-2' : "ms-1"} />
+                                    <FeatherIcon icon="airplay" className={!open ? 'me-2' : "ms-1"}/>
                                     {!open && <div className={''}>Movies</div>}
                                 </div>
                             </NavLink>
                         </div>
                         <div className={"w-100 px-sm-2"}>
-                            <NavLink className={({ isActive }) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "} to={"/admin/faq"}>
+                            <NavLink
+                                className={({isActive}) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "}
+                                to={"/admin/faq"}>
                                 <div className={'d-flex'}>
-                                    <FeatherIcon icon="message-square" className={!open ? 'me-2' : "ms-1"} />
+                                    <FeatherIcon icon="message-square" className={!open ? 'me-2' : "ms-1"}/>
                                     {!open && <div className={''}>Faq</div>}
                                 </div>
                             </NavLink>
                         </div>
                         <div className={"w-100 px-sm-2"}>
-                            <NavLink className={({ isActive }) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "} to={"/admin/booking"}>
+                            <NavLink
+                                className={({isActive}) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "}
+                                to={"/admin/booking"}>
                                 <div className={'d-flex'}>
-                                    <FeatherIcon icon="book" className={!open ? 'me-2' : "ms-1"} />
+                                    <FeatherIcon icon="book" className={!open ? 'me-2' : "ms-1"}/>
                                     {!open && <div className={''}>Booking</div>}
                                 </div>
                             </NavLink>
                         </div>
                         <div className={"w-100 px-sm-2"}>
-                            <NavLink className={({ isActive }) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "} to={"/admin/contact"}>
+                            <NavLink
+                                className={({isActive}) => isActive ? "side-menu-item side-menu-active " : "side-menu-item "}
+                                to={"/admin/contact"}>
                                 <div className={'d-flex'}>
-                                    <FeatherIcon icon="package" className={!open ? 'me-2' : "ms-1"} />
+                                    <FeatherIcon icon="package" className={!open ? 'me-2' : "ms-1"}/>
                                     {!open && <div className={''}>Contact</div>}
                                 </div>
                             </NavLink>
                         </div>
 
-                        <div className={'w-100 border-bottom-d1d1d1 mb-3'} />
+                        <div className={'w-100 border-bottom-d1d1d1 mb-3'}/>
 
                         <div className={"w-100 px-sm-2"}>
                             <NavLink
-                                className={({ isActive }) => isActive ? "side-menu-item side-menu-active" : "side-menu-item"} to={"/settings"}>
+                                className={({isActive}) => isActive ? "side-menu-item side-menu-active" : "side-menu-item"}
+                                to={"/settings"}>
                                 <div className={'d-flex'}>
-                                    <FeatherIcon icon="lock" className={!open ? 'me-2' : "ms-1"} />
+                                    <FeatherIcon icon="lock" className={!open ? 'me-2' : "ms-1"}/>
                                     {!open && <div className={''}>Change Password</div>}
+                                </div>
+                            </NavLink>
+                        </div>
+                        <div className={"w-100 px-sm-2"}>
+                            <NavLink onClick={() => localStorage.clear()}
+                                className={({isActive}) => isActive ? "side-menu-item side-menu-active" : "side-menu-item"}
+                                to={"/login"}>
+                                <div className={'d-flex'}>
+                                    <FeatherIcon icon="user" className={!open ? 'me-2' : "ms-1"}/>
+                                    {!open && <div className={''}>Sign Out</div>}
                                 </div>
                             </NavLink>
                         </div>
@@ -118,7 +140,7 @@ function Layout({ children }) {
                                 type="button"
                                 onClick={toggleDrawer}
                             >
-                                <FeatherIcon icon="menu" className="justify-content-center" />
+                            <FeatherIcon icon="menu" className="justify-content-center" />
                             </button>
 
                             <div className="collapse navbar-collapse" id="navbarNav">

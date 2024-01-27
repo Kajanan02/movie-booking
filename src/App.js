@@ -19,6 +19,7 @@ import Loader from "./components/loader";
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 import ConfirmationDialog from "./components/confirmation-dialog";
+import LoginForm from "./pages/Login/LoginForm";
 
 function App() {
     return (
@@ -29,6 +30,8 @@ function App() {
             <Routes>
                 <Route path="/*" element={<RoutesTheatre/>}/>
                 <Route path="/admin/*" element={<RoutesAdmin/>}/>
+                <Route path="/login" element={<LoginForm/>}/>
+
             </Routes>
 
 

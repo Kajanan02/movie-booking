@@ -12,17 +12,21 @@ import AdminMovies from "../../pages/admin/admin-movies";
 import AdminFaq from "../../pages/admin/admin-faq";
 import AdminContact from "../../pages/admin/admin-contact";
 import AdminBooking from "../../pages/admin/admin-booking";
+import PrivateRoute from "../PrivateRoute";
 
 function RoutesAdmin(props) {
+
+
     return (
         <>
             <Routes>
-                <Route exact path="/" element={<AdminHome/>}/>
-                <Route path="/movies" element={<AdminMovies/>}/>
-                <Route path="/contact" element={<AdminContact/>}/>
-                <Route path="/faq" element={<AdminFaq/>}/>
-                <Route path="/booking" element={<AdminBooking/>}/>
-
+                <Route exact path='/' element={<PrivateRoute/>}>
+                    <Route exact path="/" element={<AdminHome/>}/>
+                    <Route path="/movies" element={<AdminMovies/>}/>
+                    <Route path="/contact" element={<AdminContact/>}/>
+                    <Route path="/faq" element={<AdminFaq/>}/>
+                    <Route path="/booking" element={<AdminBooking/>}/>
+                </Route>
             </Routes>
         </>
 
