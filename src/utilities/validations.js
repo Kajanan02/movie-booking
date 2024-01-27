@@ -103,4 +103,17 @@ export function validateMovieData(values) {
     return errors;
 }
 
+export function validateLogin(values) {
+    let errors = {};
+
+    if (!values.username) {
+        errors.username = 'username is required';
+    }
+    if (!values.password) {
+        errors.password = 'password is required';
+    }
+
+    return errors;
+}
+
 

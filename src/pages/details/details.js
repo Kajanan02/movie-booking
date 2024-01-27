@@ -85,6 +85,9 @@ function Details(props) {
                                                         <li><span>languase <label>:</label></span><a
                                                             >{selectedMovie?.language}</a>
                                                         </li>
+                                                        <li><span>Time <label>:</label></span><a
+                                                            >{"10.00 A.M"}</a>
+                                                        </li>
                                                         <div className="btn-button btn-no-bg mt-5" onClick={()=> setShow(true)}>Book Now</div>
                                                     </ul>
                                                 </div>
@@ -104,7 +107,7 @@ function Details(props) {
                     </div>
                 </div>
             </div>
-            <MovieAdd show={show} close={onClose}/>
+            <MovieAdd show={show} close={onClose} movieData={selectedMovie}/>
         </div>
     );
 }

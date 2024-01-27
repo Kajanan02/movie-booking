@@ -9,14 +9,18 @@ import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {toggleLoader} from "../../redux/actions";
 import {toast} from "react-toastify";
+import {flatten, pluck} from "underscore";
 
 
 function MovieAdd(props) {
     const [seat, setSeat] = useState([]);
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(0);
     const [seatValidate, setSeatValidate] = useState(null);
     const [submit, setSubmit] = useState(null);
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [update, setUpdate] = useState(false);
+    const [bookedData, setBookedData] = useState([]);
+    const [selectedSeats, setSelectedSeats] = useState([]);
     const dispatch = useDispatch();
 
 
@@ -29,6 +33,41 @@ function MovieAdd(props) {
         deleteErrors,
         errors,
     } = formHandler(ticketBook, validateTicketBook);
+
+
+    useEffect(() => {
+        dispatch(toggleLoader(true))
+
+        axios.get(`${process.env.REACT_APP_HOST}booking`)
+            .then((res) => {
+                setBookedData(res.data)
+                console.log(res)
+
+            }).catch((err) => {
+            toast.error("Something went wrong")
+            console.log(err)
+        }).finally(() => {
+            // dispatch(toggleLoader(false));
+            // setFormSubmitted(false)
+            // setSubmit(false);
+            dispatch(toggleLoader(false))
+
+        })
+
+    }, [update]);
+
+    useEffect(() => {
+        let date = selectedDate.toLocaleString("sv-SE", { timeZone: "Asia/Colombo" }).split(" ")[0]
+        console.log(selectedDate)
+        console.log(date)
+        let selectedDateData = bookedData.filter((item) => item.movieDate.split(" ")[0] === date && item.movieName === props?.movieData?.name)
+        console.log(bookedData)
+        console.log(selectedDateData)
+        setSelectedSeats(flatten(pluck(selectedDateData, "seats")))
+
+    }, [selectedDate, bookedData,step]);
+
+    console.log(selectedSeats)
 
 
     function ticketBook(data) {
@@ -59,13 +98,14 @@ function MovieAdd(props) {
         setSeatValidate(false)
         setSeat([])
         props.close()
-        setStep(1)
+        setStep(0)
         deleteErrors(errors)
     }
 
     const selectedDay = (val) => {
-      setSelectedDate(val)
-        setValue({movieDate: val.toISOString()})
+        // console.log(val.toLocaleString("sv-SE", { timeZone: "Asia/Colombo" }))
+        setSelectedDate(val)
+        setValue({movieDate: val.toLocaleString("sv-SE", { timeZone: "Asia/Colombo" })})
     };
 
     useEffect(() => {
@@ -80,14 +120,15 @@ function MovieAdd(props) {
         data.contactNo = values.contactNumber
         data.address = values.address
         data.seats = seat
-        data.movieName = selectedMovie?.name
-        data.movieDate = values.movieDate
+        data.movieName = props?.movieData?.name
+        data.movieDate = values.movieDate ? values.movieDate : selectedDate.toLocaleString("sv-SE", { timeZone: "Asia/Colombo" })
         data.movieTime = "10.00 AM"
 
         console.log(data)
         axios.post(`${process.env.REACT_APP_HOST}booking`, data)
             .then((res) => {
                 console.log(res)
+                setUpdate(!update)
                 closeModal()
                 toast.success("Successfully Booked")
 
@@ -105,16 +146,29 @@ function MovieAdd(props) {
     }, [submit]);
 
 
+    function headings() {
+        switch (step) {
+            case 0:
+                return "Select Date"
+            case 1:
+                return "Select Seats"
+            case 2:
+                return "Enter Details"
+            default:
+                return "Select Date"
+        }
+    }
+
 
     return (
         <Modal show={props.show} onHide={closeModal} size="lg" backdrop="static" centered>
             <Modal.Header closeButton>
-                <Modal.Title>How Many Seats?</Modal.Title>
+                <Modal.Title>{headings()}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
 
                 {/*{[].map((item)=><div className={"sheet"}>{item}</div>)}*/}
-                {step === 1 && <div className={"row"}>
+                {step === 0 && <div className={"row"}>
                     <div className={"col-md-12 mb-5"}>
                         <DatePicker getSelectedDay={selectedDay}
                                     endDate={100}
@@ -131,7 +185,7 @@ function MovieAdd(props) {
                                                           key={index}>
                             {data[0].slice(0, 1)}
                             {data.map((item, index) => <div
-                                className={"sheet " + (seat.includes(item) ? "selected-seat" : "")}
+                                className={"sheet " + (selectedSeats.includes(item) ? "disabled-seat " :" ") + (seat.includes(item) ? "selected-seat" : "")}
                                 key={index + "sheer"} onClick={() => {
                                 seatValidate && setSeatValidate(false)
                                 if (seat.includes(item)) {
@@ -209,7 +263,9 @@ function MovieAdd(props) {
                     Close
                 </Button>
                 <Button variant="success" onClick={() => {
-                    if (step === 1) {
+                    if (step === 0) {
+                        setStep(1)
+                    } else if (step === 1) {
                         if (seat.length === 0) {
                             setSeatValidate(true)
                             return

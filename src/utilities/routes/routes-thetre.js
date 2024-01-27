@@ -7,6 +7,7 @@ import Contact from "../../pages/contact/contact";
 import Faq from "../../pages/faq/faq";
 import MainNavbar from "../../pages/home/main-Navbar";
 import Footer from "../../components/footer";
+import LoginForm from "../../pages/Login/LoginForm";
 
 function RoutesTheatre(props) {
     return (
