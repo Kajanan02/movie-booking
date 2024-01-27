@@ -14,7 +14,7 @@ function RoutesTheatre(props) {
             <MainNavbar/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/details" element={<Details/>}/>
+                <Route path="/details/:movieId" element={<Details/>}/>
                 <Route path="/movies" element={<Movies/>}/>
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/faq" element={<Faq/>}/>

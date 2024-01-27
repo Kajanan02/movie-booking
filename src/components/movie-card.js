@@ -22,13 +22,13 @@ function MovieCard(props) {
                             </div>
                             <div className="float-end">
                                 <div className="movie-ratting">
-                                    <NavLink to={"/details"} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}><span
+                                    <NavLink to={"/details/" + props?.movie?.id} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}><span
                                         className="fi fi-rr-star"></span>{props?.movie?.rate}/10</NavLink>
                                 </div>
                             </div>
                         </div>
                         <div className="movie-item-content-center">
-                            <NavLink to={"/details"}
+                            <NavLink to={"/details/" + props?.movie?.id}
                                      onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}
                                      className="flat-icons"
                                      data-video-url="https://www.youtube.com/watch?v=CsVJoCKc9rA"
@@ -36,32 +36,32 @@ function MovieCard(props) {
                         </div>
                         <div className="movie-item-content-buttom">
                             <div className="movie-item-title">
-                                <NavLink to={"/details"} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.name}</NavLink>
+                                <NavLink to={"/details/" + props?.movie?.id} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.name}</NavLink>
                             </div>
                             <div className="item-cat">
                                 <ul>
                                     <li><span>Category :</span><NavLink
-                                        to={"/details"} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.category}</NavLink></li>
+                                        to={"/details/" + props?.movie?.id} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.category}</NavLink></li>
                                 </ul>
                                 <div className="item-cat-hover">
                                     <ul>
                                         <li><span>Release :</span><NavLink
-                                            to={"/details"} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.release}</NavLink></li>
+                                            to={"/details/" + props?.movie?.id} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.release}</NavLink></li>
                                         <li><span>Genre :</span><NavLink
-                                            to={"/details"} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.genre}</NavLink></li>
+                                            to={"/details/" + props?.movie?.id} onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}>{props?.movie?.genre}</NavLink></li>
                                     </ul>
                                 </div>
                             </div>
                             <div className="movie-item-beta">
                                 <div className="movie-details">
-                                    <NavLink to={"/details"}
+                                    <NavLink to={"/details/" + props?.movie?.id}
                                              onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}
                                              className="btn btn-button button-detals blck-bg">details</NavLink>
                                 </div>
                                 <div className="view-movie">
                                     <NavLink className="blck-bg"
                                              onClick={()=> dispatch(setSelectedMovieDetail(props.movie))}
-                                             to={"/details"}>15k
+                                             to={"/details/" + props?.movie?.id}>15k
                                         view</NavLink>
                                 </div>
                             </div>
