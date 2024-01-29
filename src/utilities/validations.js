@@ -115,5 +115,17 @@ export function validateLogin(values) {
 
     return errors;
 }
+export function validatePasswordChange(values) {
+    let errors = {};
+
+    if (!values.oldpassword) {
+        errors.oldpassword = 'oldpassword is required';
+    }
+    if (!values.password) {
+        errors.password = 'password is required';
+    }
+
+    return errors;
+}
 
 
