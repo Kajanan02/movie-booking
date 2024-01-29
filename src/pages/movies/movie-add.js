@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {toggleLoader} from "../../redux/actions";
 import {toast} from "react-toastify";
 import {flatten, pluck} from "underscore";
+import * as emailjs from "@emailjs/browser";
 
 
 function MovieAdd(props) {
@@ -129,8 +130,15 @@ function MovieAdd(props) {
             .then((res) => {
                 console.log(res)
                 setUpdate(!update)
+                sendEmail({
+                    from_name: data.name,
+                    message: data.seats.join(", ") + ' Seats are Booked for ' + data.movieName + " at  "+ data.movieTime+ " on " +data.movieDate,
+                    to_name: data.name,
+                    to_email:data.email
+                })
                 closeModal()
                 toast.success("Successfully Booked")
+
 
             }).catch((err) => {
             toast.error("Something went wrong")
@@ -144,6 +152,26 @@ function MovieAdd(props) {
         })
 
     }, [submit]);
+
+
+    function sendEmail(templateParams){
+        console.log("templateParams",templateParams)
+        emailjs.send('service_a8e5i2z', 'template_05nxmdl', templateParams,"C8tJmFXwoPnPN0xwe")
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+    }
+    //
+    // useEffect(()=>{
+    //     sendEmail({
+    //         from_name: 'James',
+    //         message: 'Checasdk this out!',
+    //         to_name: 'asdfasdf this out!',
+    //         to_email:"kajanandevs@gmail.com"
+    //     })
+    // },[])
 
 
     function headings() {
