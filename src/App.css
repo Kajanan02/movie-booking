@@ -101,6 +101,12 @@
     align-items: center;
     height: calc(100vh - 100px);
 }
+.date-pick-admin{
+    max-width: 500px;
+}
+.admin-heading{
+    color: #005323;
+}
 
 .table-container {
     overflow-y: auto;
