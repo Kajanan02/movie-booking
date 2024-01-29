@@ -74,7 +74,13 @@ function Layout({children}) {
                 closeModal()
 
             }).catch((err) => {
-            toast.error("Something went wrong")
+            console.log(err)
+            if(err?.response?.data?.error){
+                toast.error(err.response.data.error)
+            }else{
+                toast.error("Something went wrong")
+            }
+
             console.log(err)
         }).finally(() => {
             setIsSubmitted(false);

@@ -31,7 +31,7 @@ function Movies(props) {
                      subTxt={"Lorem Ipsum is simply dummy text of the printing and typesetting industrioy. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown."}/>
             <div className={"container "}>
                 <div className={"row pb-75"}>
-                    {movieList?.slice(0,3).map((movie, index) =>
+                    {movieList.map((movie, index) =>
                         <div className={"col-md-4"} key={"movie" + index}>
                             <MovieCard movie={movie} key={index}/>
                         </div>
