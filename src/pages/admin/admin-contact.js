@@ -30,6 +30,7 @@ function AdminContact(props) {
     return (
         <Layout>
             <div className={"container"}>
+                <h3 className={"ms-5 my-3 fw-semibold admin-heading"}>Contact Details</h3>
                 <div className={"p-lg-5 m-lg-5 p-4"}>
                     {<div className={"table-container p-1"}>
                         <table className={"table table-hover table-striped"}>
@@ -45,15 +46,15 @@ function AdminContact(props) {
                             </thead>
                             <tbody>
                             {contactList.map((data, index) => (
-                            <tr key={index+"marksReports"}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{data.name}</td>
-                                <td>{data.email}</td>
-                                <td>{data.contactNo}</td>
-                                <td>{data.subject}</td>
-                                <td>{data.message}</td>
+                                <tr key={index + "marksReports"}>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{data.name}</td>
+                                    <td>{data.email}</td>
+                                    <td>{data.contactNo}</td>
+                                    <td>{data.subject}</td>
+                                    <td>{data.message}</td>
 
-                            </tr>
+                                </tr>
                             ))}
                             </tbody>
                         </table>

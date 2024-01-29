@@ -28,6 +28,7 @@ function AdminBooking(props) {
 
     return (
         <Layout>
+            <h3 className={"ms-5 my-3 fw-semibold admin-heading"}>Booked Seats</h3>
             <div className={"container"}>
                 <div className={"p-lg-5 m-lg-5 p-4"}>
                     {<div className={"table-container p-1"}>
@@ -45,16 +46,16 @@ function AdminBooking(props) {
                             </thead>
                             <tbody>
                             {bookingList.map((data, index) => (
-                            <tr key={index+"marksReportsasd"}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{data.name}</td>
-                                <td>{data.contactNo}</td>
-                                <td>{data.seats?.join(", ")}</td>
-                                <td>{data.address}</td>
-                                <td>{data.movieDate?.slice(0,10)}</td>
-                                <td>{data.movieName}</td>
+                                <tr key={index + "marksReportsasd"}>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{data.name}</td>
+                                    <td>{data.contactNo}</td>
+                                    <td>{data.seats?.join(", ")}</td>
+                                    <td>{data.address}</td>
+                                    <td>{data.movieDate?.slice(0, 10)}</td>
+                                    <td>{data.movieName}</td>
 
-                            </tr>
+                                </tr>
                             ))}
                             </tbody>
                         </table>

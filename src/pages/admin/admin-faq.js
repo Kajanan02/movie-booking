@@ -139,6 +139,7 @@ function AdminFaq(props) {
     return (
         <Layout>
             <div className={"container"}>
+                <h3 className={"ms-5 my-3 fw-semibold admin-heading"}>FAQ</h3>
                 <div className={"p-lg-5 m-lg-5 p-4"}>
                     <div className={"d-flex justify-content-end mb-5"}>
                         <button type="button" className={"btn-button btn-no-bg mt-5 text-dark"}
